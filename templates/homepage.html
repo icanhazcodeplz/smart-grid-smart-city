@@ -1,0 +1,23 @@
+<!doctype html>
+<title>SGSC Visualizer</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static',filename='style.css')}}">
+<div class=page>
+    <h1><i>Smart Grid, Smart City</i> Visualizer</h1>
+    <h4>Please see the <a href="https://github.com/bmagnusson/smart-grid-smart-city">smart-grid-smart-city GitHub
+        repository</a> for details.</h4>
+    The customer IDs listed in the drop-down are households in Australia that participated in the Home Area Network
+    (HAN) program.
+
+    Clicking <b>Select Customer</b> will query the energy data for that household.
+    consumption data.
+    <div class=metanav>
+        <form id='customer_select' method='post' action='index'>
+            <select name="customer_id" width="300px">
+                {% for c in c_keys %}
+                <option value="{{ c }}" SELECTED>{{ c }}</option>
+                {% endfor %}
+            </select>
+            <input type='submit' value='Select Customer'/>
+        </form>
+    </div>
+</div>
